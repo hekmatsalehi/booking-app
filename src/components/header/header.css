@@ -1,0 +1,123 @@
+.header {
+    background-color: darksalmon;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+}
+
+.header-container {
+    width: 100%;
+    max-width: 1024px;
+    margin: 20px 0px 100px 0px;
+}
+
+.header-container.list-mode {
+    margin: 20px 0px 20px 0px;
+}
+
+.header-list {
+    display: flex;
+    gap: 40px;
+}
+
+.header-list-item{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-list-item.active {
+    border: 1px solid;
+    padding: 10px;
+    border-radius: 15px;
+
+}
+
+.header-title {
+    margin: 20px 0px;
+}
+.header-desc {
+    margin-bottom: 20px;
+}
+.header-button {
+    background-color: darkgoldenrod;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.header-search {
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+    border: 3px solid darkgoldenrod;
+    position: absolute;
+    width: 100%;
+    max-width: 1024px;
+    bottom: -25px;
+    border-radius: 7px;
+}
+
+.header-icon {
+    color: gray;
+}
+
+.header-search-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-search-input {
+    border: none;
+    outline: none;
+    
+}
+
+.header-search-text {
+    color: gray;
+    cursor: pointer;
+}
+
+.date {
+    position: absolute;
+    top: 50px;
+    z-index: 2;
+  
+}
+
+.options {
+    background-color: white;
+    position: absolute;
+    top: 50px;
+    border-radius: 5px;
+    z-index: 2;
+}
+
+.option-item {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    color: gray
+}
+
+.option-btn-wrapper {
+    display: flex;
+    gap: 10px;
+}
+
+.option-counter-btn {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.option-counter-btn:disabled {
+    cursor: not-allowed;
+}
