@@ -1,0 +1,47 @@
+.subscribe-container {
+    width: 100%;
+    background-color: salmon;
+    padding: 60px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subscribe-container>h2 {
+    font-size: large;
+    font-weight: 500;
+}
+.subscribe-container>p {
+    font-size: small;
+    font-weight: 400;
+}
+
+.subscribe {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    width: 100%;
+    max-width: 900px;
+    gap: 5px;
+}
+
+.subscribe>input {
+    width: 30%;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: medium;
+}
+
+.subscribe>button {
+    width: 14%;
+    min-width: fit-content;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: darkgoldenrod;
+    font-size: medium;
+    cursor: pointer;
+}
