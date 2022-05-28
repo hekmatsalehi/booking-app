@@ -1,0 +1,30 @@
+.footer {
+    width: 100%;
+    max-width: 1024px;
+    font-size: 12px;
+    
+}
+
+.footer-lists {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.footer-list {
+    list-style: none;
+    padding: 0;
+
+}
+.footer-list-item {
+    margin-bottom: 10px;
+    cursor: pointer;
+    
+}
+.footer-list-item:hover {
+    color: salmon;
+}
+.footer-text {
+    margin-top: 20px;
+}
+
