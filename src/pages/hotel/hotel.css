@@ -1,0 +1,149 @@
+
+.hotel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    gap: 30px;
+}
+
+.hotel-container {
+    max-width: 1024px;
+
+}
+
+.hotel-intro {
+    display: flex;
+    justify-content: space-between;
+}
+.hotel-title-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.hotel-title-wrapper>h1 {
+    font-size: x-large;
+}
+.location-dot-icon {
+    margin-right: 8px;
+    font-size: 14px;
+}
+.hotel-title-wrapper>span {
+    font-size: 14px;
+}
+.hotel-title-wrapper>h2 {
+    color: darkgoldenrod;
+    font-size: large;
+    font-weight: 500;
+}
+.hotel-title-wrapper>h3 {
+    font-size: large;
+    font-weight: 400;
+}
+
+
+.reserve-button {
+    border: none;
+    height: 40px;
+    padding: 0px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: darkgoldenrod;
+
+}
+.hotel-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.hotel-img-wrapper {
+    width: 33%;
+    border-radius: 5px;
+  
+}
+
+.hotel-img-wrapper>img {
+    
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.hotel-desc-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.hotel-desc {
+    flex: 3;
+}
+.hotel-desc>h2 {
+    font-size: x-large;
+    margin-bottom: 15px;
+}
+.hotel-desc>p {
+    font-size: 14px;
+}
+.hotel-price {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: rgb(251, 196, 189);
+}
+
+.hotel-price>p {
+    font-size: 14px;
+}
+
+.images-slider {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(78, 78, 78, 0.912);
+    display: flex;
+    align-items: center;
+    z-index: 999;
+ 
+}
+
+.slider-img-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.slider-img-wrapper>img {
+    width: 80%;
+    height: 80vh;
+}
+
+.arrow-icon {
+    font-size: 40px;
+    color: lightgray;
+    cursor: pointer;
+    margin: 50px;
+}
+
+.close-icon {
+    font-size: 40px ;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: lightgray;
+}
