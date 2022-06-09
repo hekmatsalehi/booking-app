@@ -23,7 +23,10 @@ mongoose.connection.on('disconnected', () => {
     console.log('MongoDB disconnected!')
 })
 
-// middleware
+// middlewares
+
+app.use(express.json())// to send json obj to express we need this middleware
+
 app.use('/api/auth', authRoutes);
 app.use('/api/hotels', hotelsRoutes);
 app.use('/api/rooms', roomsRoutes);
