@@ -27,11 +27,22 @@ mongoose.connection.on('disconnected', () => {
 
 app.use(express.json())// to send json obj to express we need this middleware
 
+
 app.use('/api/auth', authRoutes);
 app.use('/api/hotels', hotelsRoutes);
 app.use('/api/rooms', roomsRoutes);
 app.use('/api/users', usersRoutes);
 
+app.use((err,req, res, next) =>{
+    const errorStatus = err.status || 500;
+    const errorMessage = err.message || 'Something went wrong!';
+    res.status(errorStatus).json({
+        status: errorStatus,
+        success: false,
+        message: errorMessage,
+        stack: err.stack
+    })
+})
 
 app.listen(PORT, () => {
     connect()
