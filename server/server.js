@@ -1,10 +1,11 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-import authRoutes from './routes/auth.js'
-import hotelsRoutes from './routes/hotels.js'
-import roomsRoutes from './routes/rooms.js'
-import usersRoutes from './routes/users.js'
+import authRoutes from './routes/auth.js';
+import hotelsRoutes from './routes/hotels.js';
+import roomsRoutes from './routes/rooms.js';
+import usersRoutes from './routes/users.js';
+import cookieParser from 'cookie-parser';
 
 const app = express();
 dotenv.config();
@@ -24,7 +25,7 @@ mongoose.connection.on('disconnected', () => {
 })
 
 // middlewares
-
+app.use(cookieParser()) // parse our token into cookie
 app.use(express.json())// to send json obj to express we need this middleware
 
 
