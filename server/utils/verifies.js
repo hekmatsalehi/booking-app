@@ -21,9 +21,9 @@ export const verifyUser = (req, res, next) => {
     verifyToken(req, res, () => {
         // check that the user is the same who is loggedIn
         if(req.user.id === req.params.id || req.user.isAdmin) {
-            next()
+            next();
         } else {
-            return next(createError(403, 'You are not authorized!'))
+            return next(createError(403, 'You are not authorized!'));
         }
     })
 }
