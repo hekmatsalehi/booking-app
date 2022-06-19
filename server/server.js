@@ -6,7 +6,7 @@ import hotelsRoutes from './routes/hotels.js';
 import roomsRoutes from './routes/rooms.js';
 import usersRoutes from './routes/users.js';
 import cookieParser from 'cookie-parser';
-
+import cors from 'cors';
 const app = express();
 dotenv.config();
 const PORT = 5000;
@@ -25,6 +25,7 @@ mongoose.connection.on('disconnected', () => {
 })
 
 // middlewares
+app.use(cors())
 app.use(cookieParser()) // parse our token into cookie
 app.use(express.json())// to send json obj to express we need this middleware
 
