@@ -43,7 +43,7 @@ const Footer = () => {
                     <li className="footer-list-item">Terms & conditions</li>
                 </ul>
             </div>
-            <div className="footer-text">Copyright © 2022 Cool Booking.</div>
+            <div className="footer-text">Copyright © 2022 SKY Booking.</div>
         </div>
     );
 }
