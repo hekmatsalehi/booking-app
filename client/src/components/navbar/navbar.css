@@ -14,9 +14,9 @@
     justify-content: space-between;
 }
 
-.logo{
-    font-weight: 700;
-    cursor: pointer;
+.logo-wrapper {
+    text-decoration: none;
+    color: inherit;
 }
 
 .nav-button {

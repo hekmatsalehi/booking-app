@@ -21,7 +21,7 @@ const PropertyList = () => {
         <>
           {data &&
             images.map((img, i) => (
-              <div className="property-list-item">
+              <div className="property-list-item" key={i}>
                 <img src={img} alt="" className="property-list-img" />
                 <div className="property-list-title">
                   {/* ? check whether we have data or not */}
