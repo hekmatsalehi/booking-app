@@ -5,6 +5,7 @@ import { format } from 'date-fns';
 import { useState } from 'react';
 import { DateRange } from 'react-date-range';
 import ResultList from '../../components/resultList/ResultList';
+import useFetch from '../../hooks/useFetch.js';
 import './list.css';
 
 const List = () => {
@@ -14,6 +15,14 @@ const List = () => {
     const [date, setDate] = useState(location.state.date);
     const [openDate, setOpenDate] = useState(false);
     const [option, setOption] = useState(location.state.option);
+    const [minPirce, setMinPrice] = useState(undefined);
+    const [maxPirce, setMaxPrice] = useState(undefined);
+
+    const { data, loading, error, reFetch} = useFetch(`/hotels?city=${destination}&min=${minPirce || 0}&max=${maxPirce || 1000}`)
+
+    const handleSearch = () => {
+        reFetch()
+    }
     return (
         <div>
             <Navbar/>
@@ -40,11 +49,11 @@ const List = () => {
                             <div className="list-search-options">
                                 <div className="options-item">
                                     <h4>Min price <small>(per night)</small></h4>
-                                    <input type="number" min={1}/>
+                                    <input type="number" min={1} onChange={e => setMinPrice(e.target.value)}/>
                                 </div>    
                                 <div className="options-item">
                                     <h4>Max price <small>(per night)</small></h4>
-                                    <input type="number" min={1} />
+                                    <input type="number" min={1} onChange={e => setMaxPrice(e.target.value)}/>
                                 </div>    
                                 <div className="options-item">
                                     <h4>Adult</h4>
@@ -60,17 +69,17 @@ const List = () => {
                                 </div>
                             </div>    
                         </div>
-                        <button className="list-search-btn">Search</button>
+                        <button className="list-search-btn" onClick={handleSearch}>Search</button>
                     </div>
+                    
                     <div className="list-result">
-                        <ResultList/>
-                        <ResultList/>
-                        <ResultList/>
-                        <ResultList/>
-                        <ResultList/>
-                        <ResultList/>
-                        <ResultList/>
-                        <ResultList/>
+                    {loading ? <div>Loading...</div> :
+                        <>
+                        {data.map(item => (
+                        <ResultList item={item} key={item._id}/>
+                        ))}
+                        </>
+                    }
                     </div>
                 </div>  
             </div>
