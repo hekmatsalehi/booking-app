@@ -1,5 +1,6 @@
 
 import useFetch from '../../hooks/useFetch.js';
+import LoadingSpinner from '../spinner/Spinner.jsx';
 import './featuredProperties.css'
 
 const FeaturedProperties = () => {
@@ -8,7 +9,7 @@ const FeaturedProperties = () => {
 
     return (
         <div className="featured-properties">
-            {loading ? <div>Loading...</div> : 
+            {loading ? <div className="featured-properties-spinner"><LoadingSpinner/></div> : 
             <>
             {data.map(item => (
             <div className="featured-properties-item" key={item._id}>

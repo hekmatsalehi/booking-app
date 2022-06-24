@@ -28,3 +28,10 @@
     font-weight: 300;
 }
 
+.property-list-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1024px;
+    height: 200px;
+}

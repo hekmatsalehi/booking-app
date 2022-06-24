@@ -1,13 +1,16 @@
 import useFetch from '../../hooks/useFetch.js';
+import LoadingSpinner from '../spinner/Spinner';
 import './featured.css'
 
 const Featured = () => {
 
     const { data, loading, error } = useFetch("/hotels/countByCity?cities=San%20Diego,Seattle,Salt%20Lake%20City")
     return (
+        
+        
         <div className="featured">
-            { loading ? <div>Loading...</div> :
-            <>
+        { loading ? <div className="featured-spinner"><LoadingSpinner/></div> :
+        <>
             <div className="featured-item">
                 <img src="https://images.unsplash.com/photo-1617142584114-730e9bda61b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2FuJTIwZGllZ28lMjBiZWFjaHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="" className="featured-img" />
                 <div className="featured-title">

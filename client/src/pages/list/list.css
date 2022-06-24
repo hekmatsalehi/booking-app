@@ -93,3 +93,10 @@
     margin: 10px 0px;
 
 }
+
+.list-result-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}

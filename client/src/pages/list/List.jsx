@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { DateRange } from 'react-date-range';
 import ResultList from '../../components/resultList/ResultList';
 import useFetch from '../../hooks/useFetch.js';
+import LoadingSpinner from '../../components/spinner/Spinner';
 import './list.css';
 
 const List = () => {
@@ -73,7 +74,7 @@ const List = () => {
                     </div>
                     
                     <div className="list-result">
-                    {loading ? <div>Loading...</div> :
+                    {loading ? <div className="list-result-spinner"><LoadingSpinner/></div> :
                         <>
                         {data.map(item => (
                         <ResultList item={item} key={item._id}/>

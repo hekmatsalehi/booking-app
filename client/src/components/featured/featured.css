@@ -10,7 +10,6 @@
 
 .featured-item {
     position: relative;
-    background-color: red;
     border-radius: 10px;
     overflow: hidden;
     position: relative;
@@ -28,4 +27,12 @@
     bottom: 30px;
     left: 20px;
     font-size: 12px;
+}
+
+.featured-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1024px;
+    height: 250px;
 }

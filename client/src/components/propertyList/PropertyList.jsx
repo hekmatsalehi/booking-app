@@ -1,4 +1,5 @@
 import useFetch from "../../hooks/useFetch.js";
+import LoadingSpinner from "../spinner/Spinner.jsx";
 import "./propertyList.css";
 
 const PropertyList = () => {
@@ -16,7 +17,7 @@ const PropertyList = () => {
   return (
     <div className="property-list">
       {loading ? (
-        <div>Loading...</div>
+        <div className="property-list-spinner"><LoadingSpinner/></div>
       ) : (
         <>
           {data &&

@@ -52,3 +52,11 @@
 .rating-details {
     font-size: small;
 }
+
+.featured-properties-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1024px;
+    height: 200px;
+}
