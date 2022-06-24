@@ -147,3 +147,10 @@
     right: 20px;
     color: lightgray;
 }
+
+.hotel-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
