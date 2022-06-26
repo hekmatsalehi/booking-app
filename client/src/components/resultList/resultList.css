@@ -86,11 +86,17 @@
 
 .result-list-price-btn {
     background-color: darkgoldenrod;
-    border: none;
+    border: 0.5px solid darkgoldenrod;
     padding: 5px;
     margin-top: 5px;
     height: 35px;
     width: 100%;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.result-list-price-btn:hover {
+    background-color: rgb(230, 161, 1);
+    transition: ease-out 0.2s;
+    border: 0.5px solid darkgoldenrod
 }

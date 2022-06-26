@@ -42,13 +42,19 @@
 }
 .header-button {
     background-color: darkgoldenrod;
-    padding: 10px;
-    border: none;
+    border: 0.5px solid darkgoldenrod;
+    padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
     font-weight: 500;
-}
+    font-size: 14px;
 
+}
+.header-button:hover {
+    background-color: rgb(230, 161, 1);
+    transition: ease-out 0.2s;
+    border: 0.5px solid darkgoldenrod
+}
 .header-search {
     background-color: white;
     display: flex;

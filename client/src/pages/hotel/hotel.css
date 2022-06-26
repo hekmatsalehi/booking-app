@@ -52,8 +52,16 @@
     cursor: pointer;
     border-radius: 5px;
     background-color: darkgoldenrod;
+    border: 0.5px solid darkgoldenrod;
 
 }
+.reserve-button:hover {
+    background-color: rgb(230, 161, 1);
+    transition: ease-out 0.2s;
+    border: 0.5px solid darkgoldenrod;
+
+}
+
 .hotel-images {
     display: flex;
     flex-wrap: wrap;
