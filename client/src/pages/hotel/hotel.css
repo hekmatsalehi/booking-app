@@ -56,7 +56,7 @@
 
 }
 .reserve-button:hover {
-    background-color: rgb(230, 161, 1);
+    background-color: rgb(204, 145, 6);
     transition: ease-out 0.2s;
     border: 0.5px solid darkgoldenrod;
 

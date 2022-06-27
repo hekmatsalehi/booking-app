@@ -51,9 +51,10 @@
 
 }
 .header-button:hover {
-    background-color: rgb(230, 161, 1);
+    background-color: rgb(204, 145, 6);
+    border: 0.5px solid darkgoldenrod;
+
     transition: ease-out 0.2s;
-    border: 0.5px solid darkgoldenrod
 }
 .header-search {
     background-color: white;

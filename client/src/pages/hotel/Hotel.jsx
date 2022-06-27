@@ -9,15 +9,14 @@ import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
 import Navbar from "../../components/navbar/Navbar";
 import Subscribe from "../../components/subscribe/Subscribe";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import useFetch from "../../hooks/useFetch";
 import { useLocation } from "react-router-dom";
-import "./hotel.css";
 import LoadingSpinner from "../../components/spinner/Spinner";
+import { SearchContex } from "../../contex/SearchContex";
+import "./hotel.css";
 
 const Hotel = () => {
-
-
   // Get id using useLocation hook
   const location = useLocation();
   const id = location.pathname.split("/")[2];
@@ -25,6 +24,18 @@ const Hotel = () => {
 
   const [openSlider, setOpenSlider] = useState(false);
   const [slideIndex, setSlideIndex] = useState(0);
+
+  const { dates, option } = useContext(SearchContex);
+
+  // Get the days count from the dates
+  const MILLISECONDS_PER_DAY = 1000*60*60*24;
+  const getDayDifference = (date1, date2) => {
+    const timeDifference = Math.abs(date2.getTime() - date1.getTime());
+    const daysDifference = Math.ceil(timeDifference / MILLISECONDS_PER_DAY);
+    return daysDifference
+  }
+
+  const days = getDayDifference(dates[0].startDate, dates[0].endDate);
 
   const handleSlider = (index) => {
     setSlideIndex(index);
@@ -110,13 +121,13 @@ const Hotel = () => {
                 <p>{data.decribtion}</p>
               </div>
               <div className="hotel-price">
-                <h3>Perfect for a 9 night stay!</h3>
+                <h3>Perfect for a {days} night stay!</h3>
                 <p>
                   Located in the heart of San Diego, this property has an
                   excellent location score of 9.3!
                 </p>
                 <span>
-                  <b>$945</b> (9 nights)
+                  <b>${data.cheapestPrice * days * option.room }</b> ({days} nights)
                 </span>
                 <button className="reserve-button">Reserve or Book Now!</button>
               </div>
