@@ -1,0 +1,17 @@
+
+.login {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background-color: darkgoldenrod;
+      padding: 10px;
+      border-radius: 5px;
+      width: 20%;
+  }
