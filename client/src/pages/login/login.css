@@ -1,17 +1,69 @@
 
 .login {
-    height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
+    margin-top: 150px;
   }
 
   .login-container {
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
       gap: 10px;
-      background-color: darkgoldenrod;
       padding: 10px;
       border-radius: 5px;
-      width: 20%;
+      min-width: 300px;
+
   }
+  .login-container>h2 {
+      font-size: larger;
+      color: darkgoldenrod
+  }
+
+  .login-input {
+      width: 100%;
+      height: 35px;
+      border-radius: 5px;
+      padding-left: 5px;
+      border: 2px solid darkgoldenrod
+  }
+
+  .login-btn {
+    width: 150px;
+    min-width: fit-content;
+    height: 35px;
+    border-radius: 5px;
+    background-color: white;
+    border: 2px solid darkgoldenrod;
+    font-size: medium;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+  }
+  .login-btn:before {
+      transition: 0.5s all ease;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      right: 50%;
+      bottom: 0;
+      opacity: 0;
+      content: "";
+      background-color: darkgoldenrod;
+  }
+
+.login-btn:hover:before {
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    z-index: -1;
+}
+
+.login-error {
+    font-size: medium;
+    color: red;
+    height: 15px;
+    margin-top: -5px;
+}
