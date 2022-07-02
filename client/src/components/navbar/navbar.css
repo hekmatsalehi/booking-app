@@ -19,6 +19,14 @@
     color: inherit;
 }
 
+.nav-items {
+    display: flex;
+    align-items: center;
+}
+.nav-items>h3 {
+    font-size: medium;
+    font-weight: 500;
+}
 .nav-button {
     margin-left: 20px;
     border: 0.5px solid white;

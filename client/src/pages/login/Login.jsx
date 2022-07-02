@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useContext, useState } from "react";
-import { useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import { AuthContex } from "../../contex/AuthContex";
 import "./login.css";
 
@@ -15,29 +15,25 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setCredentials( (prev) => ({
-        ...prev, [e.target.id]: e.target.value
-    }))
-  }
+    setCredentials((prev) => ({
+      ...prev,
+      [e.target.id]: e.target.value,
+    }));
+  };
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    dispatch({type: "LOGIN_START"})
+    dispatch({ type: "LOGIN_START" });
     try {
-      
-
-      
-        const response = await axios.post("/auth/login", credentials);
-     setTimeout(   dispatch({type: "LOGIN_SUCCESS", payload: response.data})
-        
-      , 5000)
-      navigate("/") 
+      const response = await axios.post("/auth/login", credentials);
+      dispatch({ type: "LOGIN_SUCCESS", payload: response.data });
+      navigate("/");
     } catch (err) {
-        dispatch({type: "LOGIN_FAIL", payload: err.response.data})
+      dispatch({ type: "LOGIN_FAIL", payload: err.response.data });
     }
-  }
+  };
 
-  console.log(user)
+  console.log(user);
   return (
     <div className="login">
       <div className="login-container">
@@ -48,7 +44,6 @@ const Login = () => {
           id="username"
           className="login-input"
           onChange={handleChange}
-          
         />
         <input
           type="password"
@@ -56,10 +51,13 @@ const Login = () => {
           id="password"
           className="login-input"
           onChange={handleChange}
-          
         />
-        <button disabled={loading} className="login-btn" onClick={handleLogin}>Login</button>
-        <div className="login-error">{error && <span>{error.message}</span>}</div>
+        <button disabled={loading} className="login-btn" onClick={handleLogin}>
+          Login
+        </button>
+        <div className="login-error">
+          {error && <span>{error.message}</span>}
+        </div>
       </div>
     </div>
   );
