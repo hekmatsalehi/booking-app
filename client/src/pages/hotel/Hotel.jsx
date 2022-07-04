@@ -11,9 +11,11 @@ import Navbar from "../../components/navbar/Navbar";
 import Subscribe from "../../components/subscribe/Subscribe";
 import { useContext, useState } from "react";
 import useFetch from "../../hooks/useFetch";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import LoadingSpinner from "../../components/spinner/Spinner";
-import { SearchContex } from "../../contex/SearchContex";
+import { SearchContext } from "../../context/SearchContext";
+import { AuthContext } from "../../context/AuthContext";
+import { Reserve } from "../../components/reserve/Reserve";
 import "./hotel.css";
 
 const Hotel = () => {
@@ -24,9 +26,11 @@ const Hotel = () => {
 
   const [openSlider, setOpenSlider] = useState(false);
   const [slideIndex, setSlideIndex] = useState(0);
+  const [openReserveModal, setOpenReserveModal] = useState(false)
 
-  const { dates, option } = useContext(SearchContex);
-
+  const { dates, option } = useContext(SearchContext);
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   // Get the days count from the dates
   const MILLISECONDS_PER_DAY = 1000*60*60*24;
   const getDayDifference = (date1, date2) => {
@@ -53,6 +57,13 @@ const Hotel = () => {
     setSlideIndex(newSlideIndex);
   };
 
+  const handleReserve = () => {
+    if (user) {
+      setOpenReserveModal(true)
+    } else {
+      navigate("/login")
+    }
+  }
   return (
     <>
       {openSlider && (
@@ -102,7 +113,7 @@ const Hotel = () => {
                   taxi
                 </h3>
               </div>
-              <button className="reserve-button">Reserve or Book Now!</button>
+              <button className="reserve-button" onClick={handleReserve}>Reserve or Book Now!</button>
             </div>
             <div className="hotel-images">
               {data.photos?.map((img, index) => (
@@ -129,13 +140,14 @@ const Hotel = () => {
                 <span>
                   <b>${data.cheapestPrice * days * option.room }</b> ({days} nights)
                 </span>
-                <button className="reserve-button">Reserve or Book Now!</button>
+                <button className="reserve-button" onClick={handleReserve}>Reserve or Book Now!</button>
               </div>
             </div>
           </div>
         )}
         <Subscribe />
         <Footer />
+        {openReserveModal && <Reserve/>}
       </div>
     </>
   );

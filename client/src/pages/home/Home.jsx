@@ -4,8 +4,8 @@ import Header from '../../components/header/Header';
 import Navbar from '../../components/navbar/Navbar';
 import FeaturedProperties from '../../components/featuredProperties/FeaturedProperties';
 import Subscribe from '../../components/subscribe/Subscribe';
-import './home.css'
 import Footer from '../../components/footer/Footer';
+import './home.css'
 
 const Home = () => {
     return (

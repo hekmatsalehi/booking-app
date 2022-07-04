@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContex } from "../../contex/AuthContex";
+import { AuthContext } from "../../context/AuthContext";
 import "./login.css";
 
 const Login = () => {
@@ -10,7 +10,7 @@ const Login = () => {
     password: undefined,
   });
 
-  const { user, loading, error, dispatch } = useContext(AuthContex);
+  const { loading, error, dispatch } = useContext(AuthContext);
   // To navigate to a different page
   const navigate = useNavigate();
 
@@ -33,7 +33,6 @@ const Login = () => {
     }
   };
 
-  console.log(user);
   return (
     <div className="login">
       <div className="login-container">

@@ -2,14 +2,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBed, faPlane, faCar, faTaxi, faCalendarDays, faPerson,  } from '@fortawesome/free-solid-svg-icons';
 import { DateRange } from 'react-date-range';
 import { useContext, useState } from 'react';
-import 'react-date-range/dist/styles.css'; // main css file
-import 'react-date-range/dist/theme/default.css'; // theme css file
 import { format } from 'date-fns';
 import { useNavigate } from 'react-router-dom';
-import { SearchContex } from '../../contex/SearchContex';
+import { SearchContext } from '../../context/SearchContext';
+import { AuthContext } from '../../context/AuthContext';
+import 'react-date-range/dist/styles.css'; // main css file
+import 'react-date-range/dist/theme/default.css'; // theme css file
 import './header.css';
 
 const Header = ({type}) => {
+    const { user } = useContext(AuthContext);
+
     const [destination, setDestination] = useState("")
     const [openDate, setOpenDate] = useState(false)
     const [dates, setDates] = useState([
@@ -40,7 +43,7 @@ const Header = ({type}) => {
         })
     }
 
-    const {dispatch} = useContext(SearchContex);
+    const {dispatch} = useContext(SearchContext);
 
     const handleSearch = () => {
         dispatch({type: "NEW_SEARCH", payload: {destination, dates, option}})
@@ -78,7 +81,7 @@ const Header = ({type}) => {
                 {type !== "list" && <>
                 <h1 className='header-title' >Try Our Lifetime Discount!</h1>
                 <p className='header-desc'>We offer reward for each travel. Create a free acount and save 20% or more</p>
-                <button className='header-button'>Login / Signup</button>
+                {!user && <button className='header-button'>Login / Signup</button>}
 
                 <div className="header-search">
                     <div className="header-search-item">

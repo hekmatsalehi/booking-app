@@ -6,7 +6,7 @@ const INITIAL_STATE = {
   error: null,
 };
 
-export const AuthContex = createContext(INITIAL_STATE);
+export const AuthContext = createContext(INITIAL_STATE);
 
 const AuthReducer = (state, action) => {
   switch (action.type) {
@@ -39,7 +39,7 @@ const AuthReducer = (state, action) => {
   }
 };
 
-export const AuthContexProvider = ({ children }) => {
+export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AuthReducer, INITIAL_STATE);
 
   // Save the loggedIn user to LocalStorage to not logout with page refresh
@@ -48,7 +48,7 @@ export const AuthContexProvider = ({ children }) => {
   }, [state.user]);
 
   return (
-    <AuthContex.Provider
+    <AuthContext.Provider
       value={{
         user: state.user,
         loading: state.loading,
@@ -57,6 +57,6 @@ export const AuthContexProvider = ({ children }) => {
       }}
     >
       {children}
-    </AuthContex.Provider>
+    </AuthContext.Provider>
   );
 };

@@ -1,11 +1,11 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContex } from '../../contex/AuthContex';
+import { AuthContext } from '../../context/AuthContext';
 import './navbar.css'
 
 const Navbar = () => {
 
-    const { user } = useContext(AuthContex);
+    const { user } = useContext(AuthContext);
     return (
         <div className="navbar">
             <div className="nav-container">
