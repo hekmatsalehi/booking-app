@@ -39,7 +39,7 @@ const Hotel = () => {
     return daysDifference
   }
 
-  const days = getDayDifference(dates[0].startDate, dates[0].endDate);
+  const days = getDayDifference(dates[0].endDate, dates[0].startDate);
 
   const handleSlider = (index) => {
     setSlideIndex(index);
@@ -147,7 +147,7 @@ const Hotel = () => {
         )}
         <Subscribe />
         <Footer />
-        {openReserveModal && <Reserve/>}
+        {openReserveModal && <Reserve setOpen={setOpenReserveModal} hotelId={id} />}
       </div>
     </>
   );
