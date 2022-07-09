@@ -25,7 +25,15 @@ export const Reserve = ({setOpen, hotelId}) => {
     return dates;
   }
 
-  console.log(getDatesRange(dates[0].startDate, dates[0].endDate))
+  const allDates = getDatesRange(dates[0].startDate, dates[0].endDate);
+
+  // check if room is available to book
+  const isAvailable = (roomNum) => {
+    const isFound = roomNum.unavailableDates.some((date) => {
+      allDates.includes(new Date(date).getTime())
+    });
+    return !isFound; // return opposit of isFound because if its true, means its unavailable
+  }
 
   const handleCheckbox = (e) => {
     const checked = e.target.checked; // true or false
@@ -56,6 +64,7 @@ export const Reserve = ({setOpen, hotelId}) => {
                   <label>{roomNumber.number}</label>
                   <input type="checkbox" value={roomNumber._id}
                   onChange={handleCheckbox}
+                  disabled={!isAvailable(roomNumber)}
                   />
                 </div>
               ))}
