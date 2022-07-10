@@ -1,0 +1,70 @@
+
+.reserve {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.615);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+}
+
+.reserve-container {
+    position: relative;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.reserve-close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+
+.reserve-item {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 20px
+}
+.reserve-item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.reserve-item-title {
+    font-weight: 500;
+
+}
+.reserve-item-description {
+    font-weight: 300;
+
+}
+.reserve-item-max {
+    font-size: 12px;
+}
+.reserve-item-price {
+    font-weight: 500;
+}
+
+.reserve-btn {
+    border: none;
+    height: 40px;
+    width: 100%;
+    padding: 0px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: darkgoldenrod;
+    border: 0.5px solid darkgoldenrod;
+
+}
+.reserve-btn:hover {
+    background-color: rgb(204, 145, 6);
+    transition: ease-out 0.2s;
+    border: 0.5px solid darkgoldenrod;
+
+}
