@@ -1,9 +1,11 @@
 
 import { faSquareXmark } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import axios from "axios"
 import { useContext, useState } from "react"
 import { SearchContext } from "../../context/SearchContext"
 import useFetch from "../../hooks/useFetch"
+import { useNavigate } from "react-router-dom"
 import "./reserve.css"
 
 export const Reserve = ({setOpen, hotelId}) => {
@@ -12,6 +14,8 @@ export const Reserve = ({setOpen, hotelId}) => {
   const [selectedRooms, setSelectedRooms] = useState([]);
 
   const {dates} = useContext(SearchContext);
+  const navigate = useNavigate();
+  
   // need to have each day
   const getDatesRange = (startDate, endDate) => {
     // create new date
@@ -30,7 +34,7 @@ export const Reserve = ({setOpen, hotelId}) => {
   // check if room is available to book
   const isAvailable = (roomNum) => {
     const isFound = roomNum.unavailableDates.some((date) => {
-      allDates.includes(new Date(date).getTime())
+     return allDates.includes(new Date(date).getTime())
     });
     return !isFound; // return opposit of isFound because if its true, means its unavailable
   }
@@ -42,8 +46,19 @@ export const Reserve = ({setOpen, hotelId}) => {
     setSelectedRooms(checked ? [...selectedRooms, value] : selectedRooms.filter(item => item !== value));
   }
 
-  const handleReserve = () => {
+  const handleReserve = async () => {
+    try {
+      await Promise.all(selectedRooms.map((roomId) => {
+        const response = axios.put(`/rooms/availability/${roomId}`, {
+          unavailableDates:allDates
+        });
+        return response.data;
+      }))
+      setOpen(false);
+      navigate("/");
+    } catch (err) {
 
+    }
   }
   return (
     <div className="reserve">
@@ -57,17 +72,20 @@ export const Reserve = ({setOpen, hotelId}) => {
                   <div className="reserve-item-title">{item.title}</div>
                   <div className="reserve-item-description">{item.description}</div>
                   <div className="reserve-item-max">Max People: <b>{item.maxPeople}</b></div>
-                  <div className="reserve-item-price">{item.price}</div>
+                  <div className="reserve-item-price">${item.price}</div>
                 </div>
+                <div className="select-room-container">
                 {item.roomNumbers.map(roomNumber => (
-                <div className="room" key={roomNumber._id}>
+                  <div className="room" key={roomNumber._id}>
                   <label>{roomNumber.number}</label>
                   <input type="checkbox" value={roomNumber._id}
                   onChange={handleCheckbox}
                   disabled={!isAvailable(roomNumber)}
                   />
                 </div>
-              ))}
+                ))}
+                </div>
+
               </div>
             ))}
             <button className="reserve-btn" onClick={handleReserve}>Reserve Now</button>

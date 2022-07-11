@@ -20,6 +20,7 @@
 
 .reserve-close-btn {
     position: absolute;
+    font-size: large;
     top: 5px;
     right: 5px;
     cursor: pointer;
@@ -49,6 +50,19 @@
 }
 .reserve-item-price {
     font-weight: 500;
+}
+
+.select-room-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+    color: gray;
+}
+.room {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .reserve-btn {
